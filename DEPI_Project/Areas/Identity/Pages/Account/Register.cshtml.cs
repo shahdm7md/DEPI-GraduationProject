@@ -114,16 +114,18 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
                     // إذا كان المستخدم Business Owner احفظ بيانات العمل
                     if (Input.UserType == "Business Owner")
                     {
-                        var businessOwner = new BusinessOwner
-                        {
-                            Id = user.Id, // ربط الـ BusinessOwner بالمستخدم الجديد
-                            BusinessName = Input.BusinessName,
-                            BusinessDescription = Input.BusinessDescription
-                        };
+                        var businessOwner = new BusinessOwner();
+
+                        businessOwner.Id = (user.UserName + user.Id)+1;
+						businessOwner.UserId = user.Id; // ربط الـ BusinessOwner بالمستخدم الجديد
+                        businessOwner.BusinessName = Input.BusinessName;
+                        businessOwner.BusinessDescription = Input.BusinessDescription;
+                        
 
                         // احفظ بيانات الـ Business Owner في قاعدة البيانات
                         _context.BusinessOwners.Add(businessOwner);
                         await _context.SaveChangesAsync();
+
                     }
 
                     var userId = await _userManager.GetUserIdAsync(user);
