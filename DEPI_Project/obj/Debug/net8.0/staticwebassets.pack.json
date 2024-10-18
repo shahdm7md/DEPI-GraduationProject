@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DEPI_Project.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\Logint.css",
+      "PackagePath": "staticwebassets\\css\\Logint.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\css\\bootstrap.min.css"
     },
@@ -77,6 +81,10 @@
       "PackagePath": "staticwebassets\\fonts\\slick.woff"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg",
+      "PackagePath": "staticwebassets\\img\\e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\hotdeal.png",
       "PackagePath": "staticwebassets\\img\\hotdeal.png"
     },
@@ -131,6 +139,10 @@
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop03.png",
       "PackagePath": "staticwebassets\\img\\shop03.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\Login.js",
+      "PackagePath": "staticwebassets\\js\\Login.js"
     },
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\bootstrap.min.js",

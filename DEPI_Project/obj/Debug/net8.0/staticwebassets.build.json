@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hAxdkNWnYYcAGMutPZm9rSnrMu1skxHqe+teyHnUPXM=",
+  "Hash": "Qn4rBCbOcmmh4Lh6rM7HcPiV5d9HOhK2TKqoRDh20A8=",
   "Source": "DEPI_Project",
   "BasePath": "_content/DEPI_Project",
   "Mode": "Default",
@@ -1347,6 +1347,25 @@
       "OriginalItemSpec": "wwwroot\\css\\css\\style.css"
     },
     {
+      "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\Logint.css",
+      "SourceId": "DEPI_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\",
+      "BasePath": "_content/DEPI_Project",
+      "RelativePath": "css/Logint.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Logint.css"
+    },
+    {
       "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\site.css",
       "SourceId": "DEPI_Project",
       "SourceType": "Discovered",
@@ -1573,6 +1592,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\slick.woff"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg",
+      "SourceId": "DEPI_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\",
+      "BasePath": "_content/DEPI_Project",
+      "RelativePath": "img/e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg"
     },
     {
       "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\hotdeal.png",
@@ -1953,6 +1991,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\js\\slick.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\Login.js",
+      "SourceId": "DEPI_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\",
+      "BasePath": "_content/DEPI_Project",
+      "RelativePath": "js/Login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Login.js"
     },
     {
       "Identity": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\site.js",
