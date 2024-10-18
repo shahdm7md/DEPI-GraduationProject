@@ -8773,23 +8773,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BLUE LAP\\.nuget\\packages\\": {},
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BLUE LAP\\Desktop\\DEPI_Project\\DEPI_Project\\DEPI_Project.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\DEPI_Project.csproj",
       "projectName": "DEPI_Project",
-      "projectPath": "C:\\Users\\BLUE LAP\\Desktop\\DEPI_Project\\DEPI_Project\\DEPI_Project.csproj",
-      "packagesPath": "C:\\Users\\BLUE LAP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BLUE LAP\\Desktop\\DEPI_Project\\DEPI_Project\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\DEPI_Project.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\BLUE LAP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8798,6 +8798,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8810,6 +8811,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8870,7 +8876,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
