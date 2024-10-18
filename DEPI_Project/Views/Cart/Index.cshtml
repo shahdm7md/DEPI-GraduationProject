@@ -1,0 +1,59 @@
+﻿@model Cart
+
+<h2>Your Cart</h2>
+
+@if (Model.CartItems.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Product.Name</td> <!-- Product name -->
+                    <td>@item.Quantity</td> <!-- Quantity -->
+                    <td>@(item.Quantity * item.Product.Price)</td> <!-- Item Price based on quantity -->
+                    <td>
+                        <form asp-action="IncreaseQuantity" asp-controller="Cart" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">+</button>
+                        </form>
+
+                        <form asp-action="DecreaseQuantity" asp-controller="Cart" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">-</button>
+                        </form>
+
+                        <!-- Remove Button with confirmation -->
+                        <form asp-action="RemoveItem" asp-controller="Cart" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm"
+                                    onclick="return confirm('Are you sure you want to remove this item?');">
+                                Remove
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="cart-total">
+        <h4>Total Price: @Model.TotalPrice.ToString("C")</h4> <!-- Total cart price -->
+    </div>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}
+
+<div class="checkout-btn">
+    <a asp-controller="Cart" asp-action="Checkout" class="btn btn-primary">Proceed to Checkout</a>
+</div>
