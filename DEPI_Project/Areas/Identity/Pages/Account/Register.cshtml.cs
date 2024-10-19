@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace DEPI_Project.Areas.Identity.Pages.Account
@@ -32,9 +33,10 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
+        private readonly IWebHostEnvironment _environment;
         public RegisterModel(
             ApplicationDbContext context,
+            IWebHostEnvironment environment,
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
@@ -48,6 +50,7 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _environment = environment;
         }
 
         [BindProperty]
@@ -84,6 +87,12 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
 
             [Display(Name = "Business Description")]
             public string BusinessDescription { get; set; }
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+            //[Display(Name = "Your Name")]
+            //public string UserName { get; set; }
+            [Display(Name = "Your Profile Picture")]
+            public string ProfilePicture { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -91,8 +100,7 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
-
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(IFormFile ProfilePicture, string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -103,9 +111,12 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
+
                 // تعيين نوع المستخدم
                 user.UserType = Input.UserType;
-
+                user.PhoneNumber = Input.PhoneNumber;
+                //user.UserName = Input.UserName;
+                //user.ProfilePicture = Input.ProfilePicture;
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -116,16 +127,29 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
                     {
                         var businessOwner = new BusinessOwner();
 
-                        businessOwner.Id = (user.UserName + user.Id)+1;
-						businessOwner.UserId = user.Id; // ربط الـ BusinessOwner بالمستخدم الجديد
+                        businessOwner.Id = (user.UserName + user.Id) + 1;
+                        businessOwner.UserId = user.Id; // ربط الـ BusinessOwner بالمستخدم الجديد
                         businessOwner.BusinessName = Input.BusinessName;
                         businessOwner.BusinessDescription = Input.BusinessDescription;
-                        
+
 
                         // احفظ بيانات الـ Business Owner في قاعدة البيانات
                         _context.BusinessOwners.Add(businessOwner);
                         await _context.SaveChangesAsync();
 
+                    }
+                    if (ProfilePicture != null && ProfilePicture.Length > 0)
+                    {
+                        var uploadsFolder = Path.Combine(_environment.WebRootPath, "img");
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + ProfilePicture.FileName;
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await ProfilePicture.CopyToAsync(fileStream);
+                        }
+
+                        user.ProfilePicture = "/img/" + uniqueFileName; // Store file path in database
                     }
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -159,7 +183,6 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
 
             return Page();
         }
-
         private ApplicationUser CreateUser()
         {
             try

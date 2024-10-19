@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<h1>Roles</h1>
+<head>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="~/css/tiny-slider.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+
+<style>
+    /* توسيط المحتوى داخل العمود */
+    .content {
+        display: flex;
+        justify-content: center; /* توسيط المحتوى أفقيًا */
+        align-items: center; /* توسيط المحتوى عموديًا */
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="row content d-flex justify-content-center justify-content-between">
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>Id</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>@role.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

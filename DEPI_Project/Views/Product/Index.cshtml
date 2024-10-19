@@ -1,0 +1,49 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Products";
+    var selectedCategory = ViewBag.SelectedCategory as int?;
+    var categories = ViewBag.Categories as List<Category>;
+}
+
+<div class="row">
+    <!-- قائمة الفئات -->
+    <div class="col-md-3">
+        <h4>Categories</h4>
+        <ul class="list-group">
+            @foreach (var category in categories)
+            {
+                <li class="list-group-item @(selectedCategory == category.Id ? "active" : "")">
+                    <a href="@Url.Action("Index", "Product", new { categoryId = category.Id })">
+                        @category.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <!-- عرض المنتجات -->
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">@product.Category.Name</p>
+                            <h3 class="product-name">
+                                <a href="/product/details/@product.Id">@product.Name</a>
+                            </h3>
+                            <h4 class="product-price">@product.Price.ToString("C")</h4>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

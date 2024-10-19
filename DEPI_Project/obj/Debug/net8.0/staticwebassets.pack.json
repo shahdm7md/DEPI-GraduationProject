@@ -1,427 +1,431 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DEPI_Project.bundle.scp.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DEPI_Project.bundle.scp.css",
       "PackagePath": "staticwebassets\\DEPI_Project.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\font-awesome.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\nouislider.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\nouislider.min.css",
       "PackagePath": "staticwebassets\\css\\css\\nouislider.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\slick-theme.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\slick-theme.css",
       "PackagePath": "staticwebassets\\css\\css\\slick-theme.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\slick.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\slick.css",
       "PackagePath": "staticwebassets\\css\\css\\slick.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\style.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\FontAwesome.otf",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.eot",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.svg",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.eot",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.eot",
       "PackagePath": "staticwebassets\\fonts\\slick.eot"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.svg",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.svg",
       "PackagePath": "staticwebassets\\fonts\\slick.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.ttf",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.ttf",
       "PackagePath": "staticwebassets\\fonts\\slick.ttf"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.woff",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.woff",
       "PackagePath": "staticwebassets\\fonts\\slick.woff"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\hotdeal.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\61503fc8-2171-4890-b0d4-ee1ff56ba6c8_cambg_3.jpg",
+      "PackagePath": "staticwebassets\\img\\61503fc8-2171-4890-b0d4-ee1ff56ba6c8_cambg_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\hotdeal.png",
       "PackagePath": "staticwebassets\\img\\hotdeal.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\logo.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product01.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product01.png",
       "PackagePath": "staticwebassets\\img\\product01.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product02.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product02.png",
       "PackagePath": "staticwebassets\\img\\product02.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product03.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product03.png",
       "PackagePath": "staticwebassets\\img\\product03.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product04.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product04.png",
       "PackagePath": "staticwebassets\\img\\product04.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product05.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product05.png",
       "PackagePath": "staticwebassets\\img\\product05.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product06.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product06.png",
       "PackagePath": "staticwebassets\\img\\product06.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product07.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product07.png",
       "PackagePath": "staticwebassets\\img\\product07.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product08.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product08.png",
       "PackagePath": "staticwebassets\\img\\product08.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product09.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\product09.png",
       "PackagePath": "staticwebassets\\img\\product09.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop01.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop01.png",
       "PackagePath": "staticwebassets\\img\\shop01.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop02.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop02.png",
       "PackagePath": "staticwebassets\\img\\shop02.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop03.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\shop03.png",
       "PackagePath": "staticwebassets\\img\\shop03.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\jquery.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\jquery.min.js",
       "PackagePath": "staticwebassets\\js\\js\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\jquery.zoom.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\jquery.zoom.min.js",
       "PackagePath": "staticwebassets\\js\\js\\jquery.zoom.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\main.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\js\\main.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\nouislider.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\nouislider.min.js",
       "PackagePath": "staticwebassets\\js\\js\\nouislider.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\slick.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\slick.min.js",
       "PackagePath": "staticwebassets\\js\\js\\slick.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Checkout.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Checkout.png",
       "PackagePath": "staticwebassets\\screenshot\\Checkout.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Index.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Index.png",
       "PackagePath": "staticwebassets\\screenshot\\Index.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Product.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Product.png",
       "PackagePath": "staticwebassets\\screenshot\\Product.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Regular.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Regular.png",
       "PackagePath": "staticwebassets\\screenshot\\Regular.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Store.png",
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\screenshot\\Store.png",
       "PackagePath": "staticwebassets\\screenshot\\Store.png"
     },
     {
