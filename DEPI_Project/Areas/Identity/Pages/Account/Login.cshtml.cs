@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using DEPI_Project.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DEPI_Project.Areas.Identity.Pages.Account
 {
@@ -22,11 +24,12 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-		
-		public LoginModel(SignInManager<ApplicationUser> signInManager, ApplicationDbContext context, ILogger<LoginModel> logger)
+        private readonly ApplicationDbContext _context;
+
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ApplicationDbContext context, ILogger<LoginModel> logger)
         {
-			
-			_signInManager = signInManager;
+            _context = context;
+            _signInManager = signInManager;
             _logger = logger;
         }
 
@@ -117,8 +120,16 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
 				var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    var user = _context.Users.Where(x => x.Email == Input.Email).FirstOrDefault();
+                    if (user.UserType == "Admin")
+                    {
+                        return RedirectToPage("./AdminChoice");
+                    }
+                    else
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {
