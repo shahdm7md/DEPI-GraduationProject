@@ -1,107 +1,194 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DEPI_Project.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using DEPI_Project.Data;
+using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 public class CartController : Controller
 {
-    // Temporary cart data
-    private static Cart cart = new Cart
-    {
-        Id = 1,
-        CartItems = new List<CartItem>
-        {
-            new CartItem
-            {
-                Product = new Product { Id = 1, Name = "Sample Product 1", Price = 50.0 },
-                Quantity = 1,
-                Price = 50.0
-            },
-            new CartItem
-            {
-                Product = new Product { Id = 2, Name = "Sample Product 2", Price = 100.0 },
-                Quantity = 1,
-                Price = 100.0
-            }
-        }
-    };
+	private readonly ApplicationDbContext _context;
+	private readonly UserManager<ApplicationUser> _userManager;
 
+	public CartController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+	{
+		_context = context;
+		_userManager = userManager;
+	}
+
+	private Cart GetCart()
+	{
+		var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+		if (string.IsNullOrEmpty(userId))
+		{
+			return null; // Return null if user is not authenticated
+		}
+
+		var cart = _context.Carts
+			.Include(c => c.CartItems)
+			.ThenInclude(ci => ci.Product)
+			.FirstOrDefault(c => c.ApplicationUserId == userId);
+
+		if (cart == null)
+		{
+			cart = new Cart { CartItems = new List<CartItem>(), ApplicationUserId = userId };
+			_context.Carts.Add(cart);
+			_context.SaveChanges();
+		}
+
+		return cart;
+	}
     public IActionResult Index()
     {
-        // Calculate the total price based on quantity and price of each item
-        cart.TotalPrice = cart.CartItems.Sum(item => item.Quantity * item.Product.Price);
-        return View(cart);
-    }
-
-
-    [HttpPost]
-    public IActionResult IncreaseQuantity(int productId)
-    {
-        var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
-        if (cartItem != null)
+        var cart = GetCart();
+        if (cart == null)
         {
-            cartItem.Quantity++;
-            cartItem.Price = cartItem.Quantity * cartItem.Product.Price;
+            return RedirectToAction("Login", "Account");
         }
 
-        return RedirectToAction("Index");
-    }
-
-    [HttpPost]
-    public IActionResult DecreaseQuantity(int productId)
-    {
-        var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
-        if (cartItem != null && cartItem.Quantity > 1)
-        {
-            cartItem.Quantity--;
-            cartItem.Price = cartItem.Quantity * cartItem.Product.Price;
-        }
-
-        return RedirectToAction("Index");
-    }
-
-    [HttpPost]
-    public IActionResult RemoveItem(int productId)
-    {
-        var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
-        if (cartItem != null)
-        {
-            cart.CartItems.Remove(cartItem);
-        }
-
-        return RedirectToAction("Index");
-    }
-
-
-    [HttpGet]
-    public IActionResult Checkout()
-    {
-        // Ensure the cart has items
-        if (!cart.CartItems.Any())
-        {
-            return RedirectToAction("Index"); // Redirect to the cart if empty
-        }
-
+        UpdateCartTotalPrice(cart);
+        ViewData["Cart"] = cart; // Pass the cart to the layout
         return View(cart);
     }
 
     [HttpPost]
-    public IActionResult PlaceOrder(string firstName, string lastName, string email, string address, string city, string country, string zipCode, string telephone, bool createAccount, bool differentAddress, string orderNotes, string paymentMethod, bool termsAccepted)
+	public IActionResult IncreaseQuantity(int productId)
+	{
+		var cart = GetCart();
+		if (cart == null) return RedirectToAction("Login", "Account"); // Check for user authentication
+
+		var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
+		if (cartItem != null)
+		{
+			cartItem.Quantity++;
+			cartItem.Price = cartItem.Quantity * cartItem.Product.Price; // Update price based on new quantity
+		}
+
+		_context.SaveChanges(); // Save changes to the database
+		return RedirectToAction("Index");
+	}
+
+	[HttpPost]
+	public IActionResult DecreaseQuantity(int productId)
+	{
+		var cart = GetCart();
+		if (cart == null) return RedirectToAction("Login", "Account");
+
+		var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
+		if (cartItem != null && cartItem.Quantity > 1)
+		{
+			cartItem.Quantity--;
+			cartItem.Price = cartItem.Quantity * cartItem.Product.Price; // Update price based on new quantity
+		}
+
+		_context.SaveChanges(); // Save changes to the database
+		return RedirectToAction("Index");
+	}
+
+	[HttpPost]
+	public IActionResult RemoveItem(int productId)
+	{
+		var cart = GetCart();
+		if (cart == null) return RedirectToAction("Login", "Account");
+
+		var cartItem = cart.CartItems.FirstOrDefault(item => item.Product.Id == productId);
+		if (cartItem != null)
+		{
+			cart.CartItems.Remove(cartItem); // Remove item from cart
+		}
+
+		_context.SaveChanges(); // Save changes to the database
+		return RedirectToAction("Index");
+	}
+
+	[HttpGet]
+	public IActionResult Checkout()
+	{
+		var cart = GetCart();
+		if (cart == null || !cart.CartItems.Any())
+		{
+			return RedirectToAction("Index"); // Redirect to cart if empty or user is not authenticated
+		}
+
+		UpdateCartTotalPrice(cart); // Update total price before checkout
+		return View(cart);
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> Checkout(string firstName, string lastName, string email, string address, string city, string country, string zipCode, string telephone, string paymentMethod)
+	{
+		var cart = GetCart();
+		if (cart == null || !cart.CartItems.Any())
+		{
+			return RedirectToAction("Index"); // Redirect to cart if empty or user is not authenticated
+		}
+
+		var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+		if (string.IsNullOrEmpty(userId))
+		{
+			return RedirectToAction("Login", "Account");
+		}
+
+		// Create a new order
+		var order = new Order
+		{
+			TotalPrice = cart.TotalPrice,
+			Status = "Pending",
+			ShippingAddress = address,
+			PaymentMethod = paymentMethod,
+			CreatedAt = DateTime.Now,
+			ApplicationUserId = userId
+		};
+
+		_context.Orders.Add(order);
+		await _context.SaveChangesAsync();
+
+		foreach (var cartItem in cart.CartItems)
+		{
+			var orderItem = new OrderItem
+			{
+				Quantity = cartItem.Quantity,
+				Price = cartItem.Product.Price,
+				ProductId = cartItem.Product.Id,
+				OrderId = order.Id
+			};
+
+			_context.OrderItems.Add(orderItem);
+		}
+
+		var shippingDetails = new ShippingDetails
+		{
+			Address = address,
+			City = city,
+			PostalCode = zipCode,
+			Country = country,
+			CreatedAt = DateTime.Now,
+			OrderId = order.Id
+		};
+
+		_context.ShippingDetails.Add(shippingDetails);
+		await _context.SaveChangesAsync();
+
+		// Clear the cart after successful checkout
+		 if (cart != null)
     {
-        if (!termsAccepted)
-        {
-            ModelState.AddModelError("", "You must accept the terms and conditions.");
-            return RedirectToAction("Checkout"); // Re-render the checkout page
-        }
-
-        // Here you can implement your order processing logic
-        // e.g., save to database, send confirmation email, etc.
-
-        // Clear the cart after placing the order
-        cart.CartItems.Clear();
-
-        return RedirectToAction("OrderConfirmation"); // Redirect to a confirmation page
+        cart.CartItems.Clear(); // Remove all items in the cart
+        _context.Carts.Remove(cart); // Remove the cart itself
+        await _context.SaveChangesAsync(); // Save changes to the database
     }
 
-    public IActionResult OrderConfirmation()
-    {
-        return View(); // Create a view to show order confirmation
-    }
+		return RedirectToAction("OrderConfirmation");
+	}
+
+	public IActionResult OrderConfirmation()
+	{
+		return View(); // Create a view to show order confirmation
+	}
+
+	private void UpdateCartTotalPrice(Cart cart)
+	{
+		cart.TotalPrice = cart.CartItems.Sum(item => item.Quantity * item.Product.Price);
+	}
 }

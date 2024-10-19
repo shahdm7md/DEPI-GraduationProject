@@ -10,15 +10,17 @@ namespace DEPI_Project.Data
         public DbSet<BusinessOwner> BusinessOwners { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders { get; set; }
+ 
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Follow> Follows { get; set; }
 
         public DbSet<Report> Reports { get; set; }
         public DbSet<Ban> Bans { get; set; }
 
-
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ShippingDetails> ShippingDetails { get; set; }
+
         public DbSet<Rating> Ratings { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
      : base(options)

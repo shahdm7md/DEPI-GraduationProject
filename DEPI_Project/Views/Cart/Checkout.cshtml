@@ -2,7 +2,9 @@
 
 <h2>Checkout</h2>
 
-<form asp-action="PlaceOrder" method="post">
+<form asp-action="Checkout" method="post">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Show validation errors -->
+
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="FirstName" class="form-control" required />
@@ -40,16 +42,6 @@
         <label for="createAccount" class="form-check-label">Create Account?</label>
     </div>
 
-    <h4>Shipping Address</h4>
-    <div class="form-group form-check">
-        <input type="checkbox" id="differentAddress" name="DifferentAddress" class="form-check-input" />
-        <label for="differentAddress" class="form-check-label">Ship to a different address?</label>
-    </div>
-    <div class="form-group">
-        <label for="orderNotes">Order Notes</label>
-        <textarea id="orderNotes" name="OrderNotes" class="form-control"></textarea>
-    </div>
-
     <h4>Your Order</h4>
     <table class="table table-striped">
         <thead>
@@ -63,7 +55,7 @@
             {
                 <tr>
                     <td>@item.Quantity x @item.Product.Name</td>
-                    <td>@(item.Quantity * item.Product.Price)</td>
+                    <td>@(item.Quantity * item.Product.Price)</td> <!-- Formatting to currency -->
                 </tr>
             }
             <tr>
@@ -72,7 +64,7 @@
             </tr>
             <tr>
                 <td><strong>TOTAL</strong></td>
-                <td><strong>@Model.TotalPrice.ToString("C")</strong></td>
+                <td><strong>@Model.TotalPrice.ToString("C")</strong></td> <!-- This should show the total -->
             </tr>
         </tbody>
     </table>
@@ -89,11 +81,6 @@
     <div class="form-group form-check">
         <input type="radio" id="paypal" name="PaymentMethod" value="Paypal" class="form-check-input" required />
         <label for="paypal" class="form-check-label">Paypal System</label>
-    </div>
-
-    <div class="form-group form-check">
-        <input type="checkbox" id="terms" name="TermsAccepted" class="form-check-input" required />
-        <label for="terms" class="form-check-label">I've read and accept the terms & conditions</label>
     </div>
 
     <button type="submit" class="btn btn-primary">Place Order</button>

@@ -2,7 +2,7 @@
 
 <h2>Your Cart</h2>
 
-@if (Model.CartItems.Any())
+@if (Model != null && Model.CartItems != null && Model.CartItems.Any())
 {
     <table class="table table-striped">
         <thead>
@@ -17,23 +17,23 @@
             @foreach (var item in Model.CartItems)
             {
                 <tr>
-                    <td>@item.Product.Name</td> <!-- Product name -->
+                    <td>@item.Product?.Name ?? "Unknown Product"</td> <!-- Product name, handle null product -->
                     <td>@item.Quantity</td> <!-- Quantity -->
-                    <td>@(item.Quantity * item.Product.Price)</td> <!-- Item Price based on quantity -->
+                    <td>@((item.Quantity * item.Product?.Price ?? 0).ToString("C"))</td> <!-- Item Price based on quantity -->
                     <td>
                         <form asp-action="IncreaseQuantity" asp-controller="Cart" method="post" style="display:inline;">
-                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <input type="hidden" name="productId" value="@item.Product?.Id" />
                             <button type="submit" class="btn btn-success btn-sm">+</button>
                         </form>
 
                         <form asp-action="DecreaseQuantity" asp-controller="Cart" method="post" style="display:inline;">
-                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <input type="hidden" name="productId" value="@item.Product?.Id" />
                             <button type="submit" class="btn btn-danger btn-sm">-</button>
                         </form>
 
                         <!-- Remove Button with confirmation -->
                         <form asp-action="RemoveItem" asp-controller="Cart" method="post" style="display:inline;">
-                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <input type="hidden" name="productId" value="@item.Product?.Id" />
                             <button type="submit" class="btn btn-warning btn-sm"
                                     onclick="return confirm('Are you sure you want to remove this item?');">
                                 Remove
