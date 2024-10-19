@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DEPI_Project</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DEPI_Project.styles.css" asp-append-version="true" /> *@
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - DEPI_Project</title>
+	@* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+	@* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/DEPI_Project.styles.css" asp-append-version="true" /> *@
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/bootstrap.min.css" />
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/bootstrap.min.css" />
 	@* <link type="text/css" rel="stylesheet" href="~/css/Logint.css" /> *@
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="~/css/css/slick-theme.css" />
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="~/css/css/slick-theme.css" />
 
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/nouislider.min.css" />
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/nouislider.min.css" />
 
-    <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="~/css/css/font-awesome.min.css">
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="~/css/css/font-awesome.min.css">
 
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/style.css" />
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/style.css" />
 </head>
 <body>
-    <header >
-        @* <div id="top-header">
-            <div class="container" style="color:white">
-             <nav >
-                <div >
-                    <a  asp-area="" asp-controller="Home" asp-action="Index">DEPI_Project</a>
-                    <button  type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span ></span>
-                    </button>
-                    <div >
-                            <ul class="header-links pull-left">
-                                <li class="fa fa-map-marker">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                                <li class="fa fa-map-marker">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                </div>
-            </nav>
-            </div>
-        </div> *@
+	<header>
+		@* <div id="top-header">
+		<div class="container" style="color:white">
+		<nav >
+		<div >
+		<a  asp-area="" asp-controller="Home" asp-action="Index">DEPI_Project</a>
+		<button  type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span ></span>
+		</button>
+		<div >
+		<ul class="header-links pull-left">
+		<li class="fa fa-map-marker">
+		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+		</li>
+		<li class="fa fa-map-marker">
+		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</li>
+		</ul>
+
+		</div>
+		</div>
+		</nav>
+		</div>
+		</div> *@
 		<div id="top-header">
 			<div class="container">
-				
+
 				<ul class="header-links pull-right">
 					<li><a href="#"><partial name="_LoginPartial" /></a></li>
 				</ul>
@@ -104,10 +104,9 @@
 							<!-- /Wishlist -->
 							<!-- Cart -->
 							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 									<i class="fa fa-shopping-cart"></i>
 									<span>Your Cart</span>
-									<div class="qty">3</div>
 								</a>
 								<div class="cart-dropdown">
 									<div class="cart-list">
@@ -138,8 +137,8 @@
 										<h5>SUBTOTAL: $2940.00</h5>
 									</div>
 									<div class="cart-btns">
-										<a asp-controller="Cart" asp-action="Index">View Cart</a>
-										<a asp-controller="Cart" asp-action="Checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										<a href="#">View Cart</a>
+										<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -161,12 +160,12 @@
 			<!-- container -->
 		</div>
 		<!-- /MAIN HEADER -->
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
 	<footer id="footer">
 		<!-- top footer -->
@@ -260,16 +259,16 @@
 		</div>
 		<!-- /bottom footer -->
 	</footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 	<script src="~/js/js/jquery.min.js"></script>
 	<script src="~/js/js/bootstrap.min.js"></script>
 	<script src="~/js/js/slick.min.js"></script>
 	<script src="~/js/js/nouislider.min.js"></script>
 	<script src="~/js/js/jquery.zoom.min.js"></script>
 	<script src="~/js/js/main.js"></script>
-	
-    @await RenderSectionAsync("Scripts", required: false)
+
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
