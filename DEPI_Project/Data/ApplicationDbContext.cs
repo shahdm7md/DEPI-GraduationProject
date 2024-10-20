@@ -20,8 +20,9 @@ namespace DEPI_Project.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ShippingDetails> ShippingDetails { get; set; }
+		public DbSet<Comment> comments { get; set; }
 
-        public DbSet<Rating> Ratings { get; set; }
+		public DbSet<Rating> Ratings { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
      : base(options)
         {
@@ -37,6 +38,8 @@ namespace DEPI_Project.Data
             builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins", "security");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims", "security");
             builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens", "security");
-        }
+            builder.Entity<IdentityUserToken<string>>().ToTable("Product");
+
+		}
     }
 }

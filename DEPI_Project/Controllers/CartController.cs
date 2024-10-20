@@ -40,20 +40,40 @@ public class CartController : Controller
 
 		return cart;
 	}
-    public IActionResult Index()
-    {
-        var cart = GetCart();
-        if (cart == null)
-        {
-            return RedirectToAction("Login", "Account");
+	public IActionResult Index()
+	{
+		// Check if the user is authenticated
+		if (!User.Identity.IsAuthenticated)
+		{
+            // Redirect to the login page if the user is not logged in
+            return Redirect("https://localhost:44345/Identity/Account/Login");
         }
 
-        UpdateCartTotalPrice(cart);
-        ViewData["Cart"] = cart; // Pass the cart to the layout
-        return View(cart);
-    }
+		// Get the cart for the authenticated user
+		var cart = GetCart();
 
-    [HttpPost]
+		// If the cart is null, create a new one
+		if (cart == null)
+		{
+			cart = new Cart
+			{
+				ApplicationUserId = User.Identity.Name, // Assuming the cart is associated with a user
+				CartItems = new List<CartItem>()
+			};
+			// Save the new cart (you might want to save it to your database here)
+		}
+
+		// Update the total price of the cart
+		UpdateCartTotalPrice(cart);
+
+		// Pass the cart to the layout or view
+		ViewData["Cart"] = cart;
+
+		return View(cart);
+	}
+
+
+	[HttpPost]
 	public IActionResult IncreaseQuantity(int productId)
 	{
 		var cart = GetCart();
