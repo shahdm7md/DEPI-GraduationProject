@@ -1,0 +1,11 @@
+﻿@model DEPI_Project.Models.Product
+
+<h2>Delete Product</h2>
+
+<p>Are you sure you want to delete the product <strong>@Model.Name</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

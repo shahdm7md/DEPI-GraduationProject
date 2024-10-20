@@ -58,11 +58,23 @@
 				
 				<ul class="header-links pull-right">
 					<li class="nav-item">
+						<a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+					 @if (User.IsInRole("BusinessOwner"))
+					{
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-controller="Product" asp-action="MyStoreProducts">My Store</a>
+						</li>
+					}
+					@if (User.IsInRole("Admin"))
+                        {
+					<li class="nav-item">
 						<a class="nav-link text-dark" asp-controller="Roles" asp-action="Index">Manage Roles</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Manage Users</a>
 					</li>
+						}
 					<li><a href="#"><i class="fa fa-user-o"></i><partial name="_LoginPartial" /></a></li>
 				</ul>
 			</div>

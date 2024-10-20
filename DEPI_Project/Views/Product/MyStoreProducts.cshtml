@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DEPI_Project.Models.Product>
+
+<h2>My Store Products</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = product.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = product.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

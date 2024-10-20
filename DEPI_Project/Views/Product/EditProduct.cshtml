@@ -1,0 +1,24 @@
+﻿@model DEPI_Project.Models.ViewsModels.ProductViewModel
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Prod_Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Prod_Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea asp-for="Prod_Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Product Image</label>
+        <input type="file" name="Prod_Image" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

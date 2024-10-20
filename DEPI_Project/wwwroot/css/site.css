@@ -100,3 +100,24 @@ body {
     .category-button:hover {
         background-color: #0056b3; /*  €ÌÌ— ·Ê‰ «·Œ·›Ì… ⁄‰œ «· „—Ì— */
     }
+
+/*  Õ”Ì‰ „ŸÂ— «·√ÌﬁÊ‰«  */
+.fa {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* ÷»ÿ «·„”«›«  »Ì‰ «·√ÌﬁÊ‰«  */
+.icons a {
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+    .icons a:hover {
+        color: #f8c146;
+    }
+
+/* «· Õﬂ„ ›Ì ÕÃ„ «·‘⁄«— */
+.header-logo img {
+    max-height: 50px;
+}
