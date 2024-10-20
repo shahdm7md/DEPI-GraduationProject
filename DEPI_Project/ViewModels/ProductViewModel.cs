@@ -31,10 +31,10 @@ namespace DEPI_Project.Models.ViewsModels
 		//[Range(0, int.MaxValue, ErrorMessage = "Stock must be greater than or equal to 0.")]
 		////public int Prod_Stock { get; set; }
 
-		[Display(Name = "Select Product Picture...")]
-		//[Required(ErrorMessage = "Product image is required.")]
-		[Required]
-		public IFormFile Prod_Image { get; set; } // استقبل الصورة هنا
+		//[Display(Name = "Select Product Picture...")]
+		////[Required(ErrorMessage = "Product image is required.")]
+		//[Required]
+		public string Prod_Image { get; set; } // استقبل الصورة هنا
 		[Display(Name = "Category")]
 		[Required(ErrorMessage = "Category is required.")] // تأكد من أن الفئة مطلوبة
 		public int CategoryId { get; set; }  // خاصية معرف الفئة
