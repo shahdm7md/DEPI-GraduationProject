@@ -135,7 +135,7 @@
 					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="product">
 							<div class="product-img">
-								<img src="@product.ImageUrl" alt="@product.Name" class="img-fluid">
+								<img src="@Url.Content($"~/img/{product.ImageUrl}")" alt="@product.Name" class="img-fluid">
 								<div class="product-label">
 									@if (product.DiscountPercentage > 0)
 									{
