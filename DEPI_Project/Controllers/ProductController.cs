@@ -5,6 +5,8 @@ using DEPI_Project.Data;
 using DEPI_Project.Models;
 using DEPI_Project.Models.ViewsModels;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 public class ProductController : Controller
 {
@@ -31,56 +33,55 @@ public class ProductController : Controller
         return View(products);
     }
 
-    // عرض المنتجات الخاصة بالـ Store للبيزنس أونر أو كل المنتجات للأدمن
-    [Authorize(Roles = "Admin,BusinessOwner")]
-    public async Task<IActionResult> MyStoreProducts()
-    {
-        var user = await _userManager.GetUserAsync(User);
-        var products = new List<Product>();
+	[Authorize(Roles = "BusinessOwner")]
+	public async Task<IActionResult> MyStoreProducts()
+	{
+		var user = await _userManager.GetUserAsync(User);
+		var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
 
-        if (User.IsInRole("Admin"))
-        {
-            products = _context.Products.ToList();
-        }
-        else if (User.IsInRole("BusinessOwner"))
-        {
-            var businessOwner = _context.BusinessOwners.FirstOrDefault(b => b.UserId == user.Id);
-            if (businessOwner != null)
-            {
-                products = _context.Products
-                    .Where(p => p.Store.BusinessOwnerId == businessOwner.Id)
-                    .ToList();
-            }
-        }
+		if (businessOwner == null)
+		{
+			return NotFound("Business owner not found.");
+		}
 
-        return View(products);
-    }
+		var products = await _context.Products
+			.Where(p => p.BusinessOwnerId == businessOwner.Id)
+			.ToListAsync();
 
-    // عرض صفحة إضافة منتج جديد
-    [Authorize(Roles = "Admin,BusinessOwner")]
-    public IActionResult AddProduct()
-    {
-        return View(new ProductViewModel());
-    }
+		return View(products);
+	}
 
-    // معالجة إضافة منتج جديد
-    [Authorize(Roles = "Admin,BusinessOwner")]
+	// عرض صفحة إضافة منتج جديد
+	[Authorize(Roles = "BusinessOwner")]
+	public IActionResult AddProduct()
+	{
+		ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
+		return View(new ProductViewModel());
+	}
+
+    [Authorize(Roles = "BusinessOwner")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddProduct(ProductViewModel model)
     {
-        if (!ModelState.IsValid) return View(model);
+        if (!ModelState.IsValid)
+        {
+            // طباعة الأخطاء إذا كان ModelState غير صالح
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
+            return View(model);
+        }
 
         var user = await _userManager.GetUserAsync(User);
-        var businessOwner = _context.BusinessOwners.FirstOrDefault(b => b.UserId == user.Id);
+        var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
 
-        if (businessOwner == null && !User.IsInRole("Admin"))
+        if (businessOwner == null)
         {
             return Unauthorized();
         }
-
-        var store = _context.Stores.FirstOrDefault(s => s.BusinessOwnerId == businessOwner.Id);
-        if (store == null) return NotFound("Store not found.");
 
         var files = Request.Form.Files;
         if (!files.Any())
@@ -102,14 +103,11 @@ public class ProductController : Controller
             return View(model);
         }
 
-        // حفظ الصورة في wwwroot/images
-        string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-        string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        // حفظ الصورة
+        var imagePath = Path.Combine("wwwroot/images", file.FileName);
+        using (var stream = new FileStream(imagePath, FileMode.Create))
         {
-            await file.CopyToAsync(fileStream);
+            await file.CopyToAsync(stream);
         }
 
         var product = new Product
@@ -117,9 +115,10 @@ public class ProductController : Controller
             Name = model.Prod_Name,
             Description = model.Prod_Description,
             Price = (double)model.Prod_Price,
-            ImageUrl = "/images/" + uniqueFileName, // حفظ المسار النسبي للصورة
+            ImageUrl = file.FileName,
             CreatedAt = DateTime.Now,
-            StoreId = store.Id
+            BusinessOwnerId = businessOwner.Id,
+            CategoryId = model.CategoryId
         };
 
         _context.Products.Add(product);
@@ -128,96 +127,103 @@ public class ProductController : Controller
         return RedirectToAction(nameof(MyStoreProducts));
     }
 
-    // تعديل منتج
-    [Authorize(Roles = "Admin,BusinessOwner")]
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null) return BadRequest();
+    // عرض صفحة تعديل منتج
+    [Authorize(Roles = "BusinessOwner")]
+	public async Task<IActionResult> EditProduct(int id)
+	{
+		var product = await _context.Products.FindAsync(id);
+		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
+		{
+			return NotFound();
+		}
+		ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+		var model = new ProductViewModel
+		{
+			Id = product.Id,
+			Prod_Name = product.Name,
+			Prod_Description = product.Description,
+			Prod_Price = (decimal)product.Price,
+			CategoryId = product.CategoryId
+		};
 
-        var product = await _context.Products.FindAsync(id);
-        if (product == null) return NotFound();
+		return View(model);
+	}
 
-        var user = await _userManager.GetUserAsync(User);
-        if (User.IsInRole("BusinessOwner") && product.Store.BusinessOwner.UserId != user.Id)
-        {
-            return Unauthorized();
-        }
+	// معالجة تعديل منتج
+	[Authorize(Roles = "BusinessOwner")]
+	[HttpPost]
+	[ValidateAntiForgeryToken]
+	public async Task<IActionResult> EditProduct(ProductViewModel model)
+	{
+		if (!ModelState.IsValid) return View(model);
 
-        var viewModel = new ProductViewModel
-        {
-            Id = product.Id,
-            Prod_Name = product.Name,
-            Prod_Price = (decimal)product.Price,
-            Prod_Description = product.Description
-        };
+		var product = await _context.Products.FindAsync(model.Id);
+		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
+		{
+			return NotFound();
+		}
 
-        return View("AddProduct", viewModel);
-    }
+		product.Name = model.Prod_Name;
+		product.Description = model.Prod_Description;
+		product.Price = (double)model.Prod_Price;
+		product.CategoryId = model.CategoryId;
 
-    // معالجة تعديل المنتج
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(ProductViewModel model)
-    {
-        if (!ModelState.IsValid) return View("AddProduct", model);
+		var files = Request.Form.Files;
+		if (files.Any())
+		{
+			var file = files.First();
+			if (!_allowedExtensions.Contains(Path.GetExtension(file.FileName).ToLower()))
+			{
+				ModelState.AddModelError("Prod_Image", "Invalid image format.");
+				return View(model);
+			}
 
-        var product = await _context.Products.FindAsync(model.Id);
-        if (product == null) return NotFound();
+			if (file.Length > _maxAllowedPosterSize)
+			{
+				ModelState.AddModelError("Prod_Image", "Image size exceeds 1 MB.");
+				return View(model);
+			}
 
-        var user = await _userManager.GetUserAsync(User);
-        if (User.IsInRole("BusinessOwner") && product.Store.BusinessOwner.UserId != user.Id)
-        {
-            return Unauthorized();
-        }
+			// حفظ الصورة
+			var imagePath = Path.Combine("wwwroot/images", file.FileName);
+			using (var stream = new FileStream(imagePath, FileMode.Create))
+			{
+				await file.CopyToAsync(stream);
+			}
 
-        var files = Request.Form.Files;
-        if (files.Any())
-        {
-            var file = files.First();
-            if (!_allowedExtensions.Contains(Path.GetExtension(file.FileName).ToLower()))
-            {
-                ModelState.AddModelError("Prod_Image", "Invalid image format.");
-                return View("AddProduct", model);
-            }
+			product.ImageUrl = file.FileName; // تحديث مسار الصورة
+		}
 
-            string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+		_context.Products.Update(product);
+		await _context.SaveChangesAsync();
 
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
+		return RedirectToAction(nameof(MyStoreProducts));
+	}
 
-            product.ImageUrl = "/images/" + uniqueFileName;
-        }
+	// حذف منتج
+	[Authorize(Roles = "BusinessOwner")]
+	[HttpPost]
+	[ValidateAntiForgeryToken]
+	public async Task<IActionResult> DeleteProduct(int id)
+	{
+		var product = await _context.Products.FindAsync(id);
+		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
+		{
+			return NotFound();
+		}
 
-        product.Name = model.Prod_Name;
-        product.Price = (double)model.Prod_Price;
-        product.Description = model.Prod_Description;
-        await _context.SaveChangesAsync();
+		_context.Products.Remove(product);
+		await _context.SaveChangesAsync();
 
-        return RedirectToAction(nameof(MyStoreProducts));
-    }
+		return RedirectToAction(nameof(MyStoreProducts));
+	}
 
-    // حذف منتج
-    [Authorize(Roles = "Admin,BusinessOwner")]
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null) return BadRequest();
+	// دالة للحصول على معرف البيزنس أونر الحالي
+	private async Task<string> GetCurrentBusinessOwnerId()
+	{
+		var user = await _userManager.GetUserAsync(User);
+		var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
+		return businessOwner?.Id;
+	}
 
-        var product = await _context.Products.FindAsync(id);
-        if (product == null) return NotFound();
-
-        var user = await _userManager.GetUserAsync(User);
-        if (User.IsInRole("BusinessOwner") && product.Store.BusinessOwner.UserId != user.Id)
-        {
-            return Unauthorized();
-        }
-
-        _context.Products.Remove(product);
-        await _context.SaveChangesAsync();
-
-        return RedirectToAction(nameof(MyStoreProducts));
-    }
 }

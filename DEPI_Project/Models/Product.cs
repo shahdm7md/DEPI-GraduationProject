@@ -15,12 +15,16 @@ namespace DEPI_Project.Models
         public DateTime? DiscountEndDate { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        [ForeignKey("Store")]
-        public int StoreId { get; set; }
-        public Store Store { get; set; }
+		//[ForeignKey("Store")]
+		//public int StoreId { get; set; }
+		//public Store Store { get; set; }
+		// Foreign Key to BusinessOwner
+		[ForeignKey("BusinessOwner")]
+		public string BusinessOwnerId { get; set; }
+		public BusinessOwner BusinessOwner { get; set; } // Navigation property
 
-        // Navigation properties
-        [ForeignKey("Category")]
+		// Navigation properties
+		[ForeignKey("Category")]
         public int CategoryId { get; set; } // Add this line
         public Category Category { get; set; } // Add this line
         public virtual ICollection<Comment> Comments { get; set; }

@@ -14,6 +14,7 @@ public class BusinessOwner
     [ForeignKey("User")]
     public string UserId { get; set; }
     public ApplicationUser User { get; set; }
-    public virtual ICollection<Follow> Follows { get; set; }
+	public virtual ICollection<Product> Products { get; set; } 
+	public virtual ICollection<Follow> Follows { get; set; }
 
 }

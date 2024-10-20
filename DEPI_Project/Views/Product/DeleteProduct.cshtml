@@ -1,11 +1,14 @@
 ﻿@model DEPI_Project.Models.Product
+@{
+    ViewBag.Title = "تأكيد الحذف";
+}
 
-<h2>Delete Product</h2>
+<h1>تأكيد الحذف</h1>
 
-<p>Are you sure you want to delete the product <strong>@Model.Name</strong>?</p>
+<p>هل أنت متأكد أنك تريد حذف المنتج "@Model.Name"؟</p>
 
-<form asp-action="Delete" method="post">
+<form asp-action="DeleteProduct" method="post">
     <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-danger">نعم، احذف المنتج</button>
+    <a asp-action="MyStoreProducts" class="btn btn-secondary">إلغاء</a>
 </form>
