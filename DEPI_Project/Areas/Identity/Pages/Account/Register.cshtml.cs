@@ -93,6 +93,8 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
             //public string UserName { get; set; }
             [Display(Name = "Your Profile Picture")]
             public string ProfilePicture { get; set; }
+            [Display(Name = "Admin Code")]
+            public string code { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -137,6 +139,21 @@ namespace DEPI_Project.Areas.Identity.Pages.Account
                         // احفظ بيانات الـ Business Owner في قاعدة البيانات
                         _context.BusinessOwners.Add(businessOwner);
                         await _context.SaveChangesAsync();
+
+                    }
+                    if (Input.UserType == "Admin")
+                    {
+
+
+                        if(Input.code != "AdminReport1234")
+                        {
+                            ModelState.AddModelError(string.Empty, "Admin Code is not correct");
+                            return Page();
+                        }
+
+
+                        // احفظ بيانات الـ Business Owner في قاعدة البيانات
+                       
 
                     }
                     if (ProfilePicture != null && ProfilePicture.Length > 0)

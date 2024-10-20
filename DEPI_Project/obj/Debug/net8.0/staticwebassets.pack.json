@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Logint.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\css\\bootstrap.min.css"
     },
@@ -33,8 +37,28 @@
       "PackagePath": "staticwebassets\\css\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\nouislider.min.css",
+      "PackagePath": "staticwebassets\\css\\nouislider.min.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\slick-theme.css",
+      "PackagePath": "staticwebassets\\css\\slick-theme.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\slick.css",
+      "PackagePath": "staticwebassets\\css\\slick.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\favicon.ico",
@@ -79,6 +103,18 @@
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\fonts\\slick.woff",
       "PackagePath": "staticwebassets\\fonts\\slick.woff"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\223d1d42-f670-4c70-a930-004cec8e7a87_photo_2023-10-21_21-02-9.jpg",
+      "PackagePath": "staticwebassets\\img\\223d1d42-f670-4c70-a930-004cec8e7a87_photo_2023-10-21_21-02-9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\52adadd0-f3ce-4463-bf07-66375de2b4ad_photo_2023-10-21_21-02-9.jpg",
+      "PackagePath": "staticwebassets\\img\\52adadd0-f3ce-4463-bf07-66375de2b4ad_photo_2023-10-21_21-02-9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\b3b8174f-15ca-4e0a-96f3-170f0b89328b_photo_2023-10-21_21-02-9.jpg",
+      "PackagePath": "staticwebassets\\img\\b3b8174f-15ca-4e0a-96f3-170f0b89328b_photo_2023-10-21_21-02-9.jpg"
     },
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\e585eee5-cf32-44ab-8ebe-eacfe57921bf_photo_2023-10-21_21-02-9.jpg",
@@ -145,6 +181,18 @@
       "PackagePath": "staticwebassets\\js\\Login.js"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\jquery.zoom.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.zoom.min.js"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\js\\bootstrap.min.js"
     },
@@ -169,8 +217,20 @@
       "PackagePath": "staticwebassets\\js\\js\\slick.min.js"
     },
     {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\js\\nouislider.min.js"
+    },
+    {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\js\\slick.min.js"
     },
     {
       "Id": "C:\\Users\\DELL\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\lib\\bootstrap\\LICENSE",

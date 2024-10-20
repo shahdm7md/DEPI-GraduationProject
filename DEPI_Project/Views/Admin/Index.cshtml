@@ -1,0 +1,106 @@
+﻿@* @model List<Report>
+<br />
+<h1 style="color:#920b21">Admin Dashboard</h1>
+<hr />
+<br />
+<h2>Product still Pending</h2>
+<table class="table" style="background-color:#920b21; color:white;">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>User Name</th>
+            <th>Reason</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+        @foreach (var report in Model)
+        {
+            if (report.Status == "Pending")
+            {  
+                <tr>
+                        <td>@report.Id</td>
+                    <td>@report.Product.Name</td>
+                    <td>@report.ReportedBy.UserName</td>
+                    <td>@report.Reason</td>
+                    <td>
+                        <form asp-action="ConfirmReport" method="post" style="display:inline;">
+                            <input type="hidden" name="reportId" value="@report.Id" />
+                            <button type="submit" class="btn btn-success">Confirm</button>
+                        </form>
+                        <form asp-action="RejectReport" method="post" style="display:inline;">
+                            <input type="hidden" name="reportId" value="@report.Id" />
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        
+
+    </tbody>
+</table>
+<h2>Product was Confirmed</h2>
+    
+<table class="table" style="background-color:#920b21; color:white;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>User Name</th>
+            <th>Reason</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            if (report.Status == "Confirmed")
+            {
+                <tr>
+                    <td>@report.Id</td>
+                    <td>@report.Product.Name</td>
+                    <td>@report.ReportedBy.UserName</td>
+                    <td>@report.Reason</td>
+                    <td>
+                        @report.Status
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table>
+<h2>Product was Rejected</h2>
+<table class="table" style="background-color:#920b21; color:white;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>User Name</th>
+            <th>Reason</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            if (report.Status == "Rejected")
+            {
+                <tr>
+                    <td>@report.Id</td>
+                    <td>@report.Product.Name</td>
+                    <td>@report.ReportedBy.UserName</td>
+                    <td>@report.Reason</td>
+                    <td>
+                        @report.Status
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table> *@

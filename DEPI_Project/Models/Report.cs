@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DEPI_Project.Models
 {
@@ -8,6 +9,7 @@ namespace DEPI_Project.Models
         public string ItemType { get; set; }
         public string Reason { get; set; }
         public DateTime CreatedAt { get; set; }
+        [DefaultValue("Pending")]
         public string Status { get; set; }
 
         [ForeignKey("ReportedBy")]
