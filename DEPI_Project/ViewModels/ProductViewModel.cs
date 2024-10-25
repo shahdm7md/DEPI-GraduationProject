@@ -1,46 +1,34 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-//using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
-namespace DEPI_Project.Models.ViewsModels
+public class ProductViewModel
 {
-	public class ProductViewModel
-	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column(Order = 1)]
-		public int Id { get; set; }
+    public int Id { get; set; }
 
-		[Display(Name = "Product Name")]
-		[Required(ErrorMessage = "Name is required.")]
-		[RegularExpression(@"^[A-Za-z]+$", ErrorMessage = "Name must contain only letters.")]
-		[StringLength(100, ErrorMessage = "Name cannot be longer than 100 characters.")]
-		public string Prod_Name { get; set; }
+    [Required(ErrorMessage = "Product name is required")]
+    public string Name { get; set; } = string.Empty;
 
-		[Display(Name = "Description")]
-		[Required(ErrorMessage = "Description is required.")]
-		public string Prod_Description { get; set; }
+    [Required(ErrorMessage = "Product description is required")]
+    [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters")]
+    public string Description { get; set; } = string.Empty;
 
-		[Display(Name = "Price")]
-		[Required(ErrorMessage = "Price is required.")]
-		[Range(0, double.MaxValue, ErrorMessage = "Price must be greater than or equal to 0.")]
-		public decimal Prod_Price { get; set; }
+    [Required(ErrorMessage = "Product price is required")]
+    [Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than 0")]
+    public decimal Price { get; set; }
 
-		//[Display(Name = "Stock")]
-		//[Required(ErrorMessage = "Stock is required.")]
-		//[Range(0, int.MaxValue, ErrorMessage = "Stock must be greater than or equal to 0.")]
-		////public int Prod_Stock { get; set; }
+    public int CategoryId { get; set; }
+    public string? CategoryName { get; set; }  // لعرض اسم الفئة في الواجهة
 
-		//[Display(Name = "Select Product Picture...")]
-		////[Required(ErrorMessage = "Product image is required.")]
-		//[Required]
-		public string Prod_Image { get; set; } // استقبل الصورة هنا
-		[Display(Name = "Category")]
-		[Required(ErrorMessage = "Category is required.")] // تأكد من أن الفئة مطلوبة
-		public int CategoryId { get; set; }  // خاصية معرف الفئة
+    public string? ImageUrl { get; set; }  // URL للصورة المحفوظة
 
-		[ForeignKey("CategoryId")] // تحديد العلاقة
-		public virtual Category Category { get; set; } // العلاقة مع الفئة
+    [Display(Name = "Product Image")]
+    public IFormFile? ImageFile { get; set; }  // الصورة التي يتم رفعها من قبل المستخدم
 
-	}
+    public double? DiscountPercentage { get; set; }
+
+    [DataType(DataType.Date)]
+    public DateTime? DiscountStartDate { get; set; }
+
+    [DataType(DataType.Date)]
+    public DateTime? DiscountEndDate { get; set; }
 }

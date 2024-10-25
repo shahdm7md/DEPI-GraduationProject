@@ -1,0 +1,43 @@
+﻿@model List<Wishlist>
+<br />
+<h1 style="color:#920b21">Your Wish List</h1>
+<hr />
+<br />
+
+<table class="table" style="background-color:#920b21; color:white;">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>User Name</th>
+            <th>Reason</th>
+            
+        </tr>
+    </thead>
+    @foreach (var report in Model)
+    {
+        
+            <tr>
+                <td>@report.Id</td>
+                <td>@report.Product.Name</td>
+                <td>@report.User.UserName</td>
+                
+                <td>
+                    <form asp-action="RemoveItem" asp-controller="Wishlist" method="post" style="display:inline;">
+                        <input type="hidden" name="productId" value="@report.Product?.Id" />
+                        <button type="submit" class="btn btn-warning btn-sm"
+                                onclick="return confirm('Are you sure you want to remove this item?');">
+                            Remove
+                        </button>
+                    </form>
+                    
+                </td>
+
+            </tr>
+        
+    }
+
+
+    </tbody>
+</table>

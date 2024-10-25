@@ -9,7 +9,7 @@ namespace DEPI_Project.Models
         public string Description { get; set; }
         public double Price { get; set; }
         // public string Category { get; set; }
-        public String ImageUrl { get; set; }
+        public String? ImageUrl { get; set; }
         public double? DiscountPercentage { get; set; }
         public DateTime? DiscountStartDate { get; set; }
         public DateTime? DiscountEndDate { get; set; }
@@ -26,7 +26,7 @@ namespace DEPI_Project.Models
 		// Navigation properties
 		[ForeignKey("Category")]
         public int CategoryId { get; set; } // Add this line
-        public Category Category { get; set; } // Add this line
+        public Category? Category { get; set; } // Add this line
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 

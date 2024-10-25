@@ -1,80 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DEPI_Project</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DEPI_Project.styles.css" asp-append-version="true" /> *@
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - DEPI_Project</title>
+	@* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+	@* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/DEPI_Project.styles.css" asp-append-version="true" /> *@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/bootstrap.min.css" />
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/bootstrap.min.css" />
 
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="~/css/css/slick-theme.css" />
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="~/css/css/slick-theme.css" />
 
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/nouislider.min.css" />
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/nouislider.min.css" />
 
-    <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="~/css/css/font-awesome.min.css">
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="~/css/css/font-awesome.min.css">
 
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="~/css/css/style.css" />
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="~/css/css/style.css" />
 </head>
 <body>
-    <header >
-        @* <div id="top-header">
-            <div class="container" style="color:white">
-             <nav >
-                <div >
-                    <a  asp-area="" asp-controller="Home" asp-action="Index">DEPI_Project</a>
-                    <button  type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span ></span>
-                    </button>
-                    <div >
-                            <ul class="header-links pull-left">
-                                <li class="fa fa-map-marker">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                                <li class="fa fa-map-marker">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                </div>
-            </nav>
-            </div>
-        </div> *@
+	<header>
+		@* <div id="top-header">
+		<div class="container" style="color:white">
+		<nav >
+		<div >
+		<a  asp-area="" asp-controller="Home" asp-action="Index">DEPI_Project</a>
+		<button  type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span ></span>
+		</button>
+		<div >
+		<ul class="header-links pull-left">
+		<li class="fa fa-map-marker">
+		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+		</li>
+		<li class="fa fa-map-marker">
+		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</li>
+		</ul>
+
+		</div>
+		</div>
+		</nav>
+		</div>
+		</div> *@
 		<div id="top-header">
 			<div class="container">
-				
+
 				<ul class="header-links pull-right">
 					<li class="nav-item">
 						<a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 					</li>
-					 @if (User.IsInRole("BusinessOwner"))
+					@if (User.IsInRole("BusinessOwner"))
 					{
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-controller="Product" asp-action="MyStoreProducts">My Store</a>
 						</li>
 					}
 					@if (User.IsInRole("Admin"))
-                        {
-					<li class="nav-item">
-						<a class="nav-link text-dark" asp-controller="Roles" asp-action="Index">Manage Roles</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Manage Users</a>
-					</li>
-						}
+					{
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-controller="Roles" asp-action="Index">Manage Roles</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Manage Users</a>
+						</li>
+					}
 					<li><a href="#"><i class="fa fa-user-o"></i><partial name="_LoginPartial" /></a></li>
 				</ul>
 			</div>
@@ -90,29 +90,29 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="#" class="logo">
-								<img src="./img/logo.png" alt="">
+								<img src="~/img/logo.png" alt="">
 							</a>
 						</div>
 					</div>
 					<!-- /LOGO -->
 					<!-- SEARCH BAR -->
 					@* <form asp-controller="Home" asp-action="Search" method="get" class="header-search">
-						<select name="category" class="input-select">
-							<option value="">All Categories</option>
-							@if (ViewBag.Categories != null)
-							{
-								foreach (var category in ViewBag.Categories)
-								{
-									<option value="@category.Id">@category.Name</option>
-								}
-							}
-							else
-							{
-								<option>No categories available</option>
-							}
-						</select>
-						<input class="input" name="query" placeholder="Search here">
-						<button class="search-btn" type="submit">Search</button>
+					<select name="category" class="input-select">
+					<option value="">All Categories</option>
+					@if (ViewBag.Categories != null)
+					{
+					foreach (var category in ViewBag.Categories)
+					{
+					<option value="@category.Id">@category.Name</option>
+					}
+					}
+					else
+					{
+					<option>No categories available</option>
+					}
+					</select>
+					<input class="input" name="query" placeholder="Search here">
+					<button class="search-btn" type="submit">Search</button>
 					</form> *@
 
 					<!-- /SEARCH BAR -->
@@ -120,9 +120,10 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
+
 							<!-- Wishlist -->
 							<div>
-								<a href="#">
+								<a asp-controller="Wishlist" asp-action="Index">
 									<i class="fa fa-heart-o"></i>
 									<span>Your Wishlist</span>
 									<div class="qty">2</div>
@@ -130,13 +131,14 @@
 							</div>
 							<!-- /Wishlist -->
 							<!-- Cart -->
-							
-								<div>
+
+							<div>
 								<a asp-controller="Cart" asp-action="Index">
 									<i class="fa fa-shopping-cart"></i>
 									<span>Your Cart</span>
-									</a>
+								</a>
 							</div>
+
 							<!-- /Cart -->
 							<!-- Menu Toogle -->
 							<div class="menu-toggle">
@@ -155,12 +157,12 @@
 			<!-- container -->
 		</div>
 		<!-- /MAIN HEADER -->
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
 	<footer id="footer">
 		<!-- top footer -->
@@ -254,15 +256,15 @@
 		</div>
 		<!-- /bottom footer -->
 	</footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 	<script src="~/js/js/jquery.min.js"></script>
 	<script src="~/js/js/bootstrap.min.js"></script>
 	<script src="~/js/js/slick.min.js"></script>
 	<script src="~/js/js/nouislider.min.js"></script>
 	<script src="~/js/js/jquery.zoom.min.js"></script>
 	<script src="~/js/js/main.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

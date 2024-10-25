@@ -1,0 +1,47 @@
+﻿@model List<Order>
+<br />
+<h1 style="color:#920b21">Your Wish List</h1>
+<hr />
+<br />
+
+<table class="table" style="background-color:#920b21; color:white;">
+
+    <thead>
+        <tr>
+            
+            <th>User Name</th>
+            <th>Total Price</th>
+            <th>Statuse</th>
+            <th>Address</th>
+            <th>Payment Method</th>
+            <th>Order Details</th>
+        </tr>
+    </thead>
+    @foreach (var report in Model)
+    {
+
+        <tr>
+            
+            <td>@report.ApplicationUser?.UserName</td>
+            <td>@report.TotalPrice</td>
+            <td>@report.Status</td>
+            <td>@report.ShippingAddress</td>
+            <td>@report.PaymentMethod</td>
+
+            <td>
+                <form asp-action="ItemesOrder" asp-controller="ShowOrders" method="post" style="display:inline;">
+                    <input type="hidden" name="Id" value="@report.Id" />
+                    <button type="submit" class="btn btn-warning btn-sm" >
+                        Remove
+                    </button>
+                </form>
+
+            </td>
+
+        </tr>
+
+    }
+
+
+    </tbody>
+</table>

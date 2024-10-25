@@ -1,12 +1,12 @@
 ﻿@model ProductViewModel
 
 @{
-    ViewData["Title"] = "Add Product";
+    ViewData["Title"] = "Edit Product";
 }
 
-<h2>Add Product</h2>
+<h2>Edit Product</h2>
 
-<form asp-action="AddProduct" enctype="multipart/form-data" method="post">
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
     <div class="form-group">
         <label asp-for="Name" class="control-label"></label>
         <input asp-for="Name" class="form-control" />
@@ -29,6 +29,13 @@
         <label asp-for="CategoryId" class="control-label"></label>
         <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Current Image:</label>
+        <div>
+            <img src="@Model.ImageUrl" alt="Product Image" style="max-width: 200px; max-height: 200px;" />
+        </div>
     </div>
 
     <div class="form-group">
@@ -56,7 +63,7 @@
         <span asp-validation-for="DiscountEndDate" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Add Product</button>
+    <button type="submit" class="btn btn-primary">Update Product</button>
 </form>
 
 <div>

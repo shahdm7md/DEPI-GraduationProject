@@ -18,9 +18,10 @@ namespace DEPI_Project.Data
         public DbSet<Ban> Bans { get; set; }
 		public DbSet<Category> Categories { get; set; } // Add this line
 
-
-		public DbSet<ShippingDetails> ShippingDetails { get; set; }
+        public DbSet<Wishlist> Wishlist { get; set; }
+        public DbSet<ShippingDetails> ShippingDetails { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
      : base(options)
         {

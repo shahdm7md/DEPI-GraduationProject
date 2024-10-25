@@ -1,34 +1,55 @@
-﻿@model IEnumerable<DEPI_Project.Models.Product>
-@{
-    ViewBag.Title = "منتجات متجري";
+﻿
+ @model List<ProductViewModel>
+
+<h2>My Store Products</h2>
+
+<div class="text-right mb-3">
+    <a asp-action="AddProduct" class="btn btn-success">+ Add New Product</a>
+</div>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No products available in your store. Start adding some!</p>
 }
-
-<h1>منتجات متجري</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>اسم المنتج</th>
-            <th>الوصف</th>
-            <th>السعر</th>
-            <th>التحكم</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
             <tr>
-                <td>@product.Name</td>
-                <td>@product.Description</td>
-                <td>@product.Price</td>
-                <td>
-                    <a asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-warning">تعديل</a>
-                    <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-danger">حذف</button>
-                    </form>
-                </td>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
-<a asp-action="AddProduct" class="btn btn-success">إضافة منتج جديد</a>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@product.ImageUrl" alt="@product.Name" class="img-thumbnail" width="80" height="80" />
+                    </td>
+                    <td>@product.Name</td>
+                    <td>@product.CategoryName</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>
+                        @if (product.DiscountPercentage.HasValue)
+                        {
+                            <span>@product.DiscountPercentage.Value.ToString("F2")%</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">No Discount</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary btn-sm">Edit</a>
+                        <a asp-action="DeleteConfirmation" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

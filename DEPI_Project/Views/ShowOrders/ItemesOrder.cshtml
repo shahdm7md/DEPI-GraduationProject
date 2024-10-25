@@ -1,0 +1,36 @@
+﻿@model List<OrderItem>
+<br />
+<h1 style="color:#920b21">Your Wish List</h1>
+<hr />
+<br />
+
+<table class="table" style="background-color:#920b21; color:white;">
+
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            
+
+        </tr>
+    </thead>
+    @foreach (var report in Model)
+    {
+
+        <tr>
+            
+            <td>@report.Product.Name</td>
+            <td>@report.Quantity</td>
+
+            <td>
+                @report.Price
+            </td>
+
+        </tr>
+
+    }
+
+
+    </tbody>
+</table>

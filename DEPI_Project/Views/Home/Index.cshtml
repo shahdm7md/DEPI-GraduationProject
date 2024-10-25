@@ -74,24 +74,6 @@
 	</nav>
 	<!-- /NAVIGATION -->
 	<!-- BREADCRUMB -->
-	<div id="breadcrumb" class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="breadcrumb-tree">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">All Categories</a></li>
-						<li><a href="#">Accessories</a></li>
-						<li class="active">Headphones (227,490 Results)</li>
-					</ul>
-				</div>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
 	<!-- /BREADCRUMB -->
 	<!-- SECTION -->
 	<div class="section">
@@ -164,7 +146,10 @@
 									}
 								</div>
 								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Add to Wishlist</span></button>
+									<button class="add-to-wishlist" onclick="toggleWishlist(this, @product.Id)">
+										<i class="fa fa-heart-o"></i>
+										<span class="tooltipp">Add to Wishlist</span>
+									</button>
 									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Add to Compare</span></button>
 									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Quick View</span></button>
 								</div>
@@ -586,6 +571,48 @@
 					});
 				}
 			</script>
+			function toggleWishlist(button, productId) {
+			const icon = button.querySelector('i');
+			const isAdded = icon.classList.contains('fa-heart'); // تحقق مما إذا كان المنتج مضافًا بالفعل
+
+			if (!isAdded) {
+			// تغيير الأيقونة إلى القلب الأحمر
+			icon.classList.remove('fa-heart-o');
+			icon.classList.add('fa-heart');
+
+			// إرسال طلب Ajax لإضافة المنتج إلى القائمة المفضلة
+			fetch('/Wishlist/AddWishes', {
+			method: 'POST',
+			headers: {
+			'Content-Type': 'application/json',
+			'X-CSRF-TOKEN': document.querySelector('input[name="__RequestVerificationToken"]').value,
+			},
+			body: JSON.stringify({ productId: productId })
+			})
+			.then(response => response.json())
+			.then(data => {
+			if (!data.success) {
+			alert('Product already in wishlist.');
+			}
+			})
+			.catch(error => console.error('Error:', error));
+			} else {
+			// إزالة المنتج من القائمة المفضلة
+			icon.classList.remove('fa-heart');
+			icon.classList.add('fa-heart-o');
+
+			fetch('/Wishlist/RemoveItem', {
+			method: 'POST',
+			headers: {
+			'Content-Type': 'application/json',
+			'X-CSRF-TOKEN': document.querySelector('input[name="__RequestVerificationToken"]').value,
+			},
+			body: JSON.stringify({ productId: productId })
+			})
+			.catch(error => console.error('Error:', error));
+			}
+			}
+
 
 </body>
 </html>

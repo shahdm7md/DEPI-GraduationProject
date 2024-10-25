@@ -77,6 +77,22 @@
       "PackagePath": "staticwebassets\\fonts\\slick.woff"
     },
     {
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\images\\products\\product02.png",
+      "PackagePath": "staticwebassets\\images\\products\\product02.png"
+    },
+    {
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\images\\products\\product03.png",
+      "PackagePath": "staticwebassets\\images\\products\\product03.png"
+    },
+    {
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\images\\products\\product04.png",
+      "PackagePath": "staticwebassets\\images\\products\\product04.png"
+    },
+    {
+      "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\images\\products\\product05.png",
+      "PackagePath": "staticwebassets\\images\\products\\product05.png"
+    },
+    {
       "Id": "C:\\Users\\BLUE LAP\\source\\repos\\DEPI-GraduationProject\\DEPI_Project\\wwwroot\\img\\61503fc8-2171-4890-b0d4-ee1ff56ba6c8_cambg_3.jpg",
       "PackagePath": "staticwebassets\\img\\61503fc8-2171-4890-b0d4-ee1ff56ba6c8_cambg_3.jpg"
     },

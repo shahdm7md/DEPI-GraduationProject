@@ -3,25 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using DEPI_Project.Data;
 using DEPI_Project.Models;
-using DEPI_Project.Models.ViewsModels;
-using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 public class ProductController : Controller
 {
-    private readonly IWebHostEnvironment _environment;
+
     private readonly ApplicationDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly List<string> _allowedExtensions = new() { ".png", ".jpg", ".jpeg", ".gif" };
    // private object _environment;
     private const long _maxAllowedPosterSize = 1048576; // 1 MB
 
-    public ProductController(ApplicationDbContext context, IWebHostEnvironment environment, UserManager<ApplicationUser> userManager)
+    public ProductController(ApplicationDbContext context,  UserManager<ApplicationUser> userManager)
     {
         _context = context;
 		_userManager = userManager;
-        _environment = environment;
     }
 
 	// عرض كل المنتجات أو حسب الـ Category
@@ -36,221 +34,258 @@ public class ProductController : Controller
         return View(products);
     }
 
-	[Authorize(Roles = "BusinessOwner,Admin")]
-	public async Task<IActionResult> MyStoreProducts()
-	{
-		var user = await _userManager.GetUserAsync(User);
-		var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
+    [Authorize(Roles = "BusinessOwner,Admin")]
+    public async Task<IActionResult> MyStoreProducts()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
 
-		if (businessOwner == null)
-		{
-			return NotFound("Business owner not found.");
-		}
+        if (businessOwner == null)
+        {
+            return NotFound("Business owner not found.");
+        }
 
-		var products = await _context.Products
-			.Where(p => p.BusinessOwnerId == businessOwner.Id)
-			.ToListAsync();
+        var products = await _context.Products
+            .Where(p => p.BusinessOwnerId == businessOwner.Id)
+            .Include(p => p.Category) // لجلب بيانات الفئة
+            .ToListAsync();
 
-		return View(products);
-	}
+        // تحويل قائمة Product إلى ProductViewModel
+        var productViewModels = products.Select(p => new ProductViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Description = p.Description,
+            Price = (decimal)p.Price,
+            CategoryId = p.CategoryId,
+            CategoryName = p.Category?.Name,
+            ImageUrl = p.ImageUrl,
+            DiscountPercentage = p.DiscountPercentage,
+            DiscountStartDate = p.DiscountStartDate,
+            DiscountEndDate = p.DiscountEndDate
+        }).ToList();
 
-	// عرض صفحة إضافة منتج جديد
-	[Authorize(Roles = "BusinessOwner,Admin")]
+        return View(productViewModels);
+    }
+
+
+    // عرض صفحة إضافة منتج جديد
+    [Authorize(Roles = "BusinessOwner,Admin")]
 	public IActionResult AddProduct()
 	{
 		ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
 		return View(new ProductViewModel());
 	}
 
- [Authorize(Roles = "BusinessOwner,Admin")]
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> AddProduct(ProductViewModel model, IFormFile Prod_Image)
-{
-    if (!ModelState.IsValid)
+    [Authorize(Roles = "BusinessOwner,Admin")]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddProduct(ProductViewModel model)
     {
-        ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
-        return View(model);
-    }
-
-    var user = await _userManager.GetUserAsync(User);
-    var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
-
-    if (businessOwner == null)
-    {
-        return Unauthorized();
-    }
-
-        //var files = Request.Form.Files;
-        //if (!files.Any())
-        //{
-        //    ModelState.AddModelError("Prod_Image", "Please select a product image.");
-        //    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
-        //    return View(model);
-        //}
-
-        //var file = files.First();
-        //if (!_allowedExtensions.Contains(Path.GetExtension(file.FileName).ToLower()))
-        //{
-        //    ModelState.AddModelError("Prod_Image", "Invalid image format.");
-        //    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
-        //    return View(model);
-        //}
-
-        //if (file.Length > _maxAllowedPosterSize)
-        //{
-        //    ModelState.AddModelError("Prod_Image", "Image size exceeds 1 MB.");
-        //    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
-        //    return View(model);
-        //}
-
-        //var imagePath = Path.Combine("wwwroot/images", file.FileName);
-        //using (var stream = new FileStream(imagePath, FileMode.Create))
-        //{
-        //    await file.CopyToAsync(stream);
-        //}
-        if (Prod_Image != null && Prod_Image.Length > 0)
+        if (!ModelState.IsValid)
         {
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "img");
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + Prod_Image.FileName;
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await Prod_Image.CopyToAsync(fileStream);
-			}
-
-			var img = "/img/" + uniqueFileName; // Store file path in database
-			var product = new Product
-			{
-				Name = model.Prod_Name,
-				Description = model.Prod_Description,
-				Price = (double)model.Prod_Price,
-				ImageUrl = img,
-
-				CreatedAt = DateTime.Now,
-				BusinessOwnerId = businessOwner.Id,
-				CategoryId = model.CategoryId
-			};
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-        }
-		else
-		{
-            var product = new Product
-            {
-                Name = model.Prod_Name,
-                Description = model.Prod_Description,
-                Price = (double)model.Prod_Price,
-                ImageUrl = null,
-
-                CreatedAt = DateTime.Now,
-                BusinessOwnerId = businessOwner.Id,
-                CategoryId = model.CategoryId
-            };
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
+            ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
+            return View(model);
         }
 
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var businessOwner = await _context.BusinessOwners
+            .FirstOrDefaultAsync(bo => bo.UserId == userId);
 
+        if (businessOwner == null)
+            return Unauthorized("You are not a Business Owner.");
 
-		return RedirectToAction(nameof(MyStoreProducts));
-}
+        // تحقق مما إذا كان هناك صورة مرفوعة
+        if (model.ImageFile != null)
+        {
+            // تحقق من الامتداد
+            var extension = Path.GetExtension(model.ImageFile.FileName);
+            if (!_allowedExtensions.Contains(extension))
+            {
+                ModelState.AddModelError("ImageFile", "Invalid image type.");
+                ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
+                return View(model);
+            }
+
+            // تحقق من حجم الصورة
+            if (model.ImageFile.Length > _maxAllowedPosterSize)
+            {
+                ModelState.AddModelError("ImageFile", "Image size should not exceed 1 MB.");
+                ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
+                return View(model);
+            }
+
+            // مسار حفظ الصورة
+            var imagePath = Path.Combine("wwwroot/images/products", model.ImageFile.FileName);
+
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await model.ImageFile.CopyToAsync(stream);
+            }
+
+            // تعيين مسار الصورة
+            model.ImageUrl = $"/images/products/{model.ImageFile.FileName}";
+        }
+
+        // إنشاء كائن المنتج الجديد
+        var product = new Product
+        {
+            Name = model.Name,
+            Description = model.Description,
+            Price = (double)model.Price,
+            CategoryId = model.CategoryId,
+            CreatedAt = DateTime.UtcNow,
+            BusinessOwnerId = businessOwner.Id,
+            ImageUrl = model.ImageUrl,
+            DiscountPercentage = model.DiscountPercentage,
+            DiscountStartDate = model.DiscountStartDate,
+            DiscountEndDate = model.DiscountEndDate
+        };
+
+        _context.Products.Add(product);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(MyStoreProducts));
+    }
+
 
 
     // عرض صفحة تعديل منتج
     [Authorize(Roles = "BusinessOwner,Admin")]
-	public async Task<IActionResult> EditProduct(int id)
-	{
-		var product = await _context.Products.FindAsync(id);
-		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
-		{
-			return NotFound();
-		}
-		ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
-		var model = new ProductViewModel
-		{
-			Id = product.Id,
-			Prod_Name = product.Name,
-			Prod_Description = product.Description,
-			Prod_Price = (decimal)product.Price,
-			CategoryId = product.CategoryId
-		};
+    public async Task<IActionResult> Edit(int id)
+    {
+        var product = await _context.Products.FindAsync(id);
+        if (product == null)
+        {
+            return NotFound("Product not found.");
+        }
 
-		return View(model);
-	}
+        var model = new ProductViewModel
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Price = (decimal)product.Price,
+            CategoryId = product.CategoryId,
+            CategoryName = _context.Categories.FirstOrDefault(c => c.Id == product.CategoryId)?.Name, // إذا كنت بحاجة لاسم الفئة
+            ImageUrl = product.ImageUrl,
+            DiscountPercentage = product.DiscountPercentage,
+            DiscountStartDate = product.DiscountStartDate,
+            DiscountEndDate = product.DiscountEndDate
+        };
 
-	// معالجة تعديل منتج
-	[Authorize(Roles = "BusinessOwner,Admin")]
-	[HttpPost]
-	[ValidateAntiForgeryToken]
-	public async Task<IActionResult> EditProduct(ProductViewModel model)
-	{
-		if (!ModelState.IsValid) return View(model);
+        ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", model.CategoryId);
+        return View(model);
+    }
 
-		var product = await _context.Products.FindAsync(model.Id);
-		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
-		{
-			return NotFound();
-		}
 
-		product.Name = model.Prod_Name;
-		product.Description = model.Prod_Description;
-		product.Price = (double)model.Prod_Price;
-		product.CategoryId = model.CategoryId;
+    // معالجة تعديل منتج
+    [Authorize(Roles = "BusinessOwner,Admin")]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(ProductViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", model.CategoryId);
+            return View(model);
+        }
 
-		var files = Request.Form.Files;
-		if (files.Any())
-		{
-			var file = files.First();
-			if (!_allowedExtensions.Contains(Path.GetExtension(file.FileName).ToLower()))
-			{
-				ModelState.AddModelError("Prod_Image", "Invalid image format.");
-				return View(model);
-			}
+        var product = await _context.Products.FindAsync(model.Id);
+        if (product == null)
+        {
+            return NotFound("Product not found.");
+        }
 
-			if (file.Length > _maxAllowedPosterSize)
-			{
-				ModelState.AddModelError("Prod_Image", "Image size exceeds 1 MB.");
-				return View(model);
-			}
+        // تحديث خصائص المنتج
+        product.Name = model.Name;
+        product.Description = model.Description;
+        product.Price = (double)model.Price;
+        product.CategoryId = model.CategoryId;
+        product.DiscountPercentage = model.DiscountPercentage;
+        product.DiscountStartDate = model.DiscountStartDate;
+        product.DiscountEndDate = model.DiscountEndDate;
 
-			// حفظ الصورة
-			var imagePath = Path.Combine("wwwroot/images", file.FileName);
-			using (var stream = new FileStream(imagePath, FileMode.Create))
-			{
-				await file.CopyToAsync(stream);
-			}
+        // إذا كان هناك صورة مرفوعة
+        if (model.ImageFile != null)
+        {
+            var extension = Path.GetExtension(model.ImageFile.FileName);
+            if (!_allowedExtensions.Contains(extension))
+            {
+                ModelState.AddModelError("ImageFile", "Invalid image type.");
+                ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", model.CategoryId);
+                return View(model);
+            }
 
-			product.ImageUrl = file.FileName; // تحديث مسار الصورة
-		}
+            if (model.ImageFile.Length > _maxAllowedPosterSize)
+            {
+                ModelState.AddModelError("ImageFile", "Image size should not exceed 1 MB.");
+                ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", model.CategoryId);
+                return View(model);
+            }
 
-		_context.Products.Update(product);
-		await _context.SaveChangesAsync();
+            // مسار حفظ الصورة
+            var imagePath = Path.Combine("wwwroot/images/products", model.ImageFile.FileName);
 
-		return RedirectToAction(nameof(MyStoreProducts));
-	}
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await model.ImageFile.CopyToAsync(stream);
+            }
 
-	// حذف منتج
-	[Authorize(Roles = "BusinessOwner,Admin")]
-	[HttpPost]
-	[ValidateAntiForgeryToken]
-	public async Task<IActionResult> DeleteProduct(int id)
-	{
-		var product = await _context.Products.FindAsync(id);
-		if (product == null || product.BusinessOwnerId != (await GetCurrentBusinessOwnerId()))
-		{
-			return NotFound();
-		}
+            // تعيين مسار الصورة
+            product.ImageUrl = $"/images/products/{model.ImageFile.FileName}";
+        }
 
-		_context.Products.Remove(product);
-		await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
 
-		return RedirectToAction(nameof(MyStoreProducts));
-	}
+        return RedirectToAction(nameof(MyStoreProducts));
+    }
 
-	// دالة للحصول على معرف البيزنس أونر الحالي
-	private async Task<string> GetCurrentBusinessOwnerId()
+
+
+    [Authorize(Roles = "BusinessOwner,Admin")]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var product = await _context.Products
+            .FirstOrDefaultAsync(p => p.Id == id && p.BusinessOwner.UserId == userId);
+
+        if (product == null) return NotFound();
+
+        _context.Products.Remove(product);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(MyStoreProducts));
+    }
+
+    [Authorize(Roles = "BusinessOwner,Admin")]
+    public async Task<IActionResult> DeleteConfirmation(int id)
+    {
+        var product = await _context.Products.FindAsync(id);
+        if (product == null)
+        {
+            return NotFound("Product not found.");
+        }
+
+        var model = new ProductViewModel
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Price = (decimal)product.Price,
+            CategoryId = product.CategoryId,
+            CategoryName = _context.Categories.FirstOrDefault(c => c.Id == product.CategoryId)?.Name,
+            ImageUrl = product.ImageUrl
+        };
+
+        return View(model);
+    }
+
+
+    // دالة للحصول على معرف البيزنس أونر الحالي
+    private async Task<string> GetCurrentBusinessOwnerId()
 	{
 		var user = await _userManager.GetUserAsync(User);
 		var businessOwner = await _context.BusinessOwners.FirstOrDefaultAsync(b => b.UserId == user.Id);
